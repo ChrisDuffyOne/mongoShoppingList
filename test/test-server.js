@@ -33,6 +33,7 @@ describe('Shopping List', function(){
 				response.body[0].should.have.property('_id');
 				response.body[0].should.have.property('name');
 				response.body[0].name.should.be.a('string');
+				console.log(response.body);
 				/*response.body[0].name.should.equal('Broad beans');
 				response.body[1].name.should.equal('Tomatoes');
 				response.body[2].name.should.equal('Peppers');*/
