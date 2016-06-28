@@ -11,6 +11,8 @@ var app = server.app;
 
 chai.use(chaiHttp);
 
+var paramID;
+
 describe('Shopping List', function(){
    before(function(done){
        seed.run(function(){
