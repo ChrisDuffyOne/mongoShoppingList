@@ -1,6 +1,7 @@
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 
+
 global.environment = 'test';
 var server = require('../server.js');
 var Item = require('../models/item');
@@ -10,6 +11,7 @@ var should = chai.should();
 var app = server.app;
 
 chai.use(chaiHttp);
+chai.use(require('chai-things'));
 
 var paramID;
 
@@ -29,14 +31,14 @@ describe('Shopping List', function(){
 				response.should.be.json;
 				response.body.should.be.a('array');
 				response.body.should.have.length(3);
-				/*response.body[0].should.be.a('object');
-				response.body[0].should.have.property('_id');
-				response.body[0].should.have.property('name');
+				response.body[0].should.be.a('object');
 				response.body[0].name.should.be.a('string');
-				response.body[0].name.should.equal('Broad beans');
-				response.body[1].name.should.equal('Tomatoes');
-				response.body[2].name.should.equal('Peppers');*/
-				console.log(response.body);
+				response.body.should.all.have.property('name');
+				response.body.should.all.have.property('_id');
+				response.body.should.contain.a.thing.with.property('name', 'Tomatoes');
+				response.body.should.contain.a.thing.with.property('name', 'Peppers');
+				response.body.should.contain.a.thing.with.property('name', 'Broad beans');
+				console.log(response.body); //DEBUG
 				done();
 			});
 	});
