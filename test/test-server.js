@@ -60,7 +60,7 @@ describe('Shopping List', function(){
 			});
 	});
 	
-	/*it('should list Kale on GET',function(done){
+	it('should list Kale on GET',function(done){
 		chai.request(app)
 			.get('/items')
 			.end(function(error, response){
@@ -70,18 +70,15 @@ describe('Shopping List', function(){
 				response.body.should.be.a('array');
 				response.body.should.have.length(4);
 				response.body[0].should.be.a('object');
-				response.body[0].should.have.property('_id');
-				response.body[0].should.have.property('name');
 				response.body[0].name.should.be.a('string');
-				response.body[0].name.should.equal('Broad beans');
-				response.body[1].name.should.equal('Tomatoes');
-				response.body[2].name.should.equal('Peppers');
-				response.body[3].should.be.a('object');
-				response.body[3].should.have.property('_id');
-				response.body[3].should.have.property('name');
-				response.body[3].name.should.be.a('string');
-				response.body[3].name.should.equal('Kale');
+				response.body.should.all.have.property('name');
+				response.body.should.all.have.property('_id');
+				response.body.should.contain.a.thing.with.property('name', 'Tomatoes');
+				response.body.should.contain.a.thing.with.property('name', 'Peppers');
+				response.body.should.contain.a.thing.with.property('name', 'Broad beans');
+				response.body.should.contain.a.thing.with.property('name', 'Kale'); 
 				
+				//PUT Param for next test
 				paramID = response.body[3]._id;
 				done();
 			});
@@ -105,7 +102,7 @@ describe('Shopping List', function(){
 			});
 	});
 
-    it('should list Bacon on GET',function(done){
+    /*it('should list Bacon on GET',function(done){
 		chai.request(app)
 			.get('/items')
 			.end(function(error, response){
