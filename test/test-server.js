@@ -38,7 +38,6 @@ describe('Shopping List', function(){
 				response.body.should.contain.a.thing.with.property('name', 'Tomatoes');
 				response.body.should.contain.a.thing.with.property('name', 'Peppers');
 				response.body.should.contain.a.thing.with.property('name', 'Broad beans');
-				console.log(response.body); //DEBUG
 				done();
 			});
 	});
@@ -115,13 +114,11 @@ describe('Shopping List', function(){
 				response.body[0].name.should.be.a('string');
 				response.body.should.all.have.property('name');
 				response.body.should.all.have.property('_id');
-				
 				response.body.should.contain.a.thing.with.property('name', 'Tomatoes');
 				response.body.should.contain.a.thing.with.property('name', 'Peppers');
 				response.body.should.contain.a.thing.with.property('name', 'Broad beans');
 				response.body.should.not.contain.a.thing.with.property('name', 'Kale');
 				response.body.should.contain.a.thing.with.property('name', 'Bacon'); 
-				
 				done();
 			});
 	});
@@ -134,7 +131,6 @@ describe('Shopping List', function(){
 				should.equal(error, null);
 				response.should.have.status(200);
 				response.should.be.json;
-				
 				response.body.should.have.property('_id');
 				response.body._id.should.equal(paramID);
 				response.body.should.have.property('name');
@@ -152,12 +148,10 @@ describe('Shopping List', function(){
     				response.should.be.json;
     				response.body.should.be.a('array');
     				response.body.should.have.length(3);
-    				
     				response.body.should.contain.a.thing.with.property('name', 'Tomatoes');
 					response.body.should.contain.a.thing.with.property('name', 'Peppers');
 					response.body.should.contain.a.thing.with.property('name', 'Broad beans');
 					response.body.should.not.contain.a.thing.with.property('name', 'Bacon');
-    				
     				done();
     			});
     });
