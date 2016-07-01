@@ -102,7 +102,7 @@ describe('Shopping List', function(){
 			});
 	});
 
-    /*it('should list Bacon on GET',function(done){
+    it('should list Bacon on GET',function(done){
 		chai.request(app)
 			.get('/items')
 			.end(function(error, response){
@@ -111,11 +111,17 @@ describe('Shopping List', function(){
 				response.should.be.json;
 				response.body.should.be.a('array');
 				response.body.should.have.length(4);
-				response.body[3].should.be.a('object');
-				response.body[3].should.have.property('_id');
-				response.body[3].should.have.property('name');
-				response.body[3].name.should.be.a('string');
-				response.body[3].name.should.equal('Bacon');
+				response.body[0].should.be.a('object');
+				response.body[0].name.should.be.a('string');
+				response.body.should.all.have.property('name');
+				response.body.should.all.have.property('_id');
+				
+				response.body.should.contain.a.thing.with.property('name', 'Tomatoes');
+				response.body.should.contain.a.thing.with.property('name', 'Peppers');
+				response.body.should.contain.a.thing.with.property('name', 'Broad beans');
+				response.body.should.not.contain.a.thing.with.property('name', 'Kale');
+				response.body.should.contain.a.thing.with.property('name', 'Bacon'); 
+				
 				done();
 			});
 	});
@@ -146,9 +152,15 @@ describe('Shopping List', function(){
     				response.should.be.json;
     				response.body.should.be.a('array');
     				response.body.should.have.length(3);
+    				
+    				response.body.should.contain.a.thing.with.property('name', 'Tomatoes');
+					response.body.should.contain.a.thing.with.property('name', 'Peppers');
+					response.body.should.contain.a.thing.with.property('name', 'Broad beans');
+					response.body.should.not.contain.a.thing.with.property('name', 'Bacon');
+    				
     				done();
     			});
-    });*/
+    });
    
    after(function(done){
        Item.remove(function(){ //deletes all items
