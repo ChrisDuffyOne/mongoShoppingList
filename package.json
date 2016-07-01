@@ -4,7 +4,6 @@
   "description": "Syncing up the shopping list app with a mongo database",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js",
     "test": "mocha"
   },
   "keywords": [
@@ -22,6 +21,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "chai-things": "^0.2.0",
     "mocha": "^2.5.3"
   }
 }
