@@ -13,7 +13,6 @@ var app = server.app;
 chai.use(chaiHttp);
 chai.use(require('chai-things'));
 
-//DEBUG
 var paramID;
 
 describe('Shopping List', function(){
