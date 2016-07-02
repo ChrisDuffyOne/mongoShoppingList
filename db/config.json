@@ -1,6 +1,6 @@
 {
    "production": {
-       "url": "mongodb://testMan:123456@ds011755.mlab.com:11755/shopping-list-test"
+       "url": "mongodb://localhost/shopping-list"
    },
    "test":{
        "url": "mongodb://localhost/shopping-list-test"
