@@ -8,3 +8,9 @@ addons:
     - mongodb-3.2-precise
     packages:
     - mongodb-org-server
+deploy:
+  provider: heroku
+  api_key: c52e8699-57b2-4f2a-9015-5dc80fa4c3c6
+  app: travis-try-4
+  on:
+    repo: ChrisDuffyOne/mongoShoppingList
